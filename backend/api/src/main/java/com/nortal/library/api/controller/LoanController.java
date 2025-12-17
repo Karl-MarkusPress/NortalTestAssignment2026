@@ -50,7 +50,8 @@ public class LoanController {
 
   @PostMapping("/return")
   public ResultWithNextResponse returnBook(@RequestBody @Valid ReturnRequest request) {
-    LibraryService.ResultWithNext result = libraryService.returnBook(request.bookId());
+    LibraryService.ResultWithNext result =
+        libraryService.returnBook(request.bookId(), request.memberId());
     return new ResultWithNextResponse(result.ok(), result.nextMemberId());
   }
 

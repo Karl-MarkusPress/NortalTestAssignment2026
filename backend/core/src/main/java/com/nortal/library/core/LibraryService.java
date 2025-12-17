@@ -39,7 +39,7 @@ public class LibraryService {
     return Result.success();
   }
 
-  public ResultWithNext returnBook(String bookId) {
+  public ResultWithNext returnBook(String bookId, String memberId) {
     Optional<Book> book = bookRepository.findById(bookId);
     if (book.isEmpty()) {
       return ResultWithNext.failure();
